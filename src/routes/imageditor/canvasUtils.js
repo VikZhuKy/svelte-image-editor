@@ -17,13 +17,13 @@ function getRadianAngle(degreeValue) {
 }
 
 /**
+ * This function was adapted from the one in the ReadMe of https://github.com/DominicTobias/react-image-crop
  * @param {File} image - Image File url
  * @param {Object} pixelCrop - pixelCrop Object provided by react-easy-crop
  * @param {number} rotation - optional rotation parameter
  */
 export async function getCroppedImg(imageSrc, pixelCrop, rotation = 0) {
   console.log(pixelCrop);
-
   const image = await createImage(imageSrc)
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
