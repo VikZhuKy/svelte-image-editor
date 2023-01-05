@@ -13,16 +13,17 @@
         type Options,
         type OverlayOptions
     } from '../lib';
-    export let VIDEO: Media = {
+    const VIDEO: Media = {
         content_type: 'video',
         url: `${base}/Mountain%20-%208837.mp4`
     };
-    export let IMAGE: Media = {
+    const IMAGE: Media = {
         content_type: 'image',
         url: `${base}/hintersee-3601004.jpg`
     };
     let video: boolean = false;
     let media = IMAGE;
+    export let output = media;
     let options: Options<OverlayOptions> = {
         ...defaultOptions,
         shape: 'round',
@@ -38,11 +39,16 @@
     let value2: CropValue = { ...defaultValue };
     let position: Point = { x: 0, y: 0 };
     let crop_window_el: CropWindow<OverlayOptions>;
-    $: {
+   
+    let placeholder;
+    let showImage = true;
+   
+   $: {
         position = value.position;
         video = video;
-        media = video ? VIDEO : IMAGE;
+        media = output;
     }
+
 </script>
 
 <svelte:head>
@@ -50,6 +56,7 @@
 </svelte:head>
 
 <div class="container">
+	{#if showImage}
    
 
     <div class="box">
@@ -215,6 +222,10 @@
             <CropWindow bind:value={value2} {media} />
         </div>
     </div>
+	{:else}
+		<span bind:this={placeholder}>Image Preview</span>
+	{/if}
+
 </div>
 
 <style>

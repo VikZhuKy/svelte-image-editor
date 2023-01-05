@@ -3,6 +3,7 @@
   let container;
   let image;
   let placeholder;
+  export let imageResult;
 	let showImage = false;
 
   function onChange() {
@@ -14,15 +15,15 @@
       const reader = new FileReader();
       reader.addEventListener("load", function () {
         image.setAttribute("src", reader.result);
+        imageResult = reader.result;
       });
       reader.readAsDataURL(file);
-			
-			return;
+      return;
     } 
 		showImage = false; 
   }
 
-  
+
 </script>
 
 <h1>Image Preview on File Upload</h1>

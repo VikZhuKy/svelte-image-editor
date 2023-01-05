@@ -4,6 +4,16 @@
 	import ImageEditor from './Image.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+
+	let imgOrigin = null;
+	let baseImage;
+	$: {
+		baseImage = {
+			content_type: 'image',
+			url: imgOrigin
+			};
+		}
+	console.log("--image changed--", baseImage);
 </script>
 
 <svelte:head>
@@ -23,9 +33,9 @@
 		to your new<br />SvelteKit Image Editor
 	</h1>
 
-	<ImageUploader />
+	<ImageUploader bind:imageResult={imgOrigin}/>
 	<!-- <Counter /> -->
-	<ImageEditor />
+	<ImageEditor output={baseImage} />
 </section>
 
 <style>
