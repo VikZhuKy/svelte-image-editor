@@ -3,6 +3,9 @@
  * 
  */
 
+import { FocusedImage, FocusPicker, Focus } from "image-focus"
+
+
 const createImage = (url) =>
   new Promise((resolve, reject) => {
     const image = new Image()

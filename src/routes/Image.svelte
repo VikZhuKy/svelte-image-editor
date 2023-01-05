@@ -13,11 +13,11 @@
         type Options,
         type OverlayOptions
     } from '../lib';
-    const VIDEO: Media = {
+    export let VIDEO: Media = {
         content_type: 'video',
         url: `${base}/Mountain%20-%208837.mp4`
     };
-    const IMAGE: Media = {
+    export let IMAGE: Media = {
         content_type: 'image',
         url: `${base}/hintersee-3601004.jpg`
     };
