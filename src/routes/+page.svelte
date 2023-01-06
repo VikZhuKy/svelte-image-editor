@@ -4,6 +4,15 @@
 	import ImageEditor from './Image.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import PEditor from './Editor.svelte';
+
+  
+  	import { content } from '$lib/dummy';
+  	let height;
+
+	import Viewer from 'tui-editor-svelte/Viewer.svelte';
+	import Editor from 'tui-editor-svelte/Editor.svelte';
+
 
 	let imgOrigin = null;
 	let baseImage;
@@ -34,8 +43,7 @@
 	</h1>
 
 	<ImageUploader bind:imageResult={imgOrigin}/>
-	<!-- <Counter /> -->
-	<ImageEditor output={baseImage} />
+	<ImageEditor output={baseImage}/>
 </section>
 
 <style>
@@ -49,6 +57,10 @@
 
 	h1 {
 		width: 100%;
+	}
+
+	#editor_container {
+		height: 100%;
 	}
 
 	.welcome {

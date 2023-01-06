@@ -419,6 +419,8 @@
     $: {
         value.aspect && make_image_cover_crop_area(true);
     }
+        console.log("--crop image size--", crop_window_size);
+
 </script>
 
 {#if crop_window_size && outer_size}
@@ -514,12 +516,10 @@
 {/if}
 
 <style>
-    /*
+    
     .p {
         background-color: red;
-        width: 5px;
         height: 5px;
         box-sizing: border-box;
     }
-    */
 </style>

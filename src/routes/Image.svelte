@@ -3,6 +3,7 @@
     import { Highlight, HighlightSvelte } from 'svelte-highlight';
     import { atomOneDark } from 'svelte-highlight/styles';
     import typescript from 'svelte-highlight/languages/typescript';
+
     import {
         CropWindow,
         defaultValue,
@@ -26,7 +27,7 @@
     export let output = media;
     let options: Options<OverlayOptions> = {
         ...defaultOptions,
-        shape: 'round',
+        shape: 'rect',
         crop_window_margin: 30,
         overlay_options: {
             overlay_color: '#167676AA',
@@ -34,7 +35,6 @@
             show_third_lines: true
         }
     };
-    let background_color = '#164646';
     let value: CropValue = { ...defaultValue };
     let value2: CropValue = { ...defaultValue };
     let position: Point = { x: 0, y: 0 };
@@ -49,6 +49,8 @@
         media = output;
     }
 
+
+
 </script>
 
 <svelte:head>
@@ -62,11 +64,10 @@
     <div class="box">
         <h2 id="with-controls"><a href="#with-controls">Example with controls</a></h2>
 
-        <div style="height:20em; background: {background_color}">
+        <div style="height:10em; ">
             <CropWindow bind:this={crop_window_el} bind:value {media} {options} />
         </div>
 
-        <button on:click={() => (video = !video)}>{video ? 'video' : 'image'}</button>
 
         <h3>Result</h3>
         <div
@@ -202,8 +203,6 @@
             <input type="color" bind:value={options.overlay_options.overlay_color} />
             <div>line color</div>
             <input type="color" bind:value={options.overlay_options.line_color} />
-            <div>background color</div>
-            <input type="color" bind:value={background_color} />
         </div>
         <h3>Shape</h3>
         <div>
@@ -215,11 +214,6 @@
                 <option value={true}>show third lines</option>
                 <option value={false}>don't show third lines</option>
             </select>
-        </div>
-    </div>
-    <div class="box">
-        <div style="height:20em; background: #222">
-            <CropWindow bind:value={value2} {media} />
         </div>
     </div>
 	{:else}

@@ -27,13 +27,20 @@
 		"svelte": "^3.54.0",
 		"svelte-check": "^2.9.2",
 		"tslib": "^2.4.1",
+		"tui-editor-svelte": "^0.0.1",
 		"typescript": "^4.9.3",
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
 	},
 	"type": "module",
 	"dependencies": {
+		"@toast-ui/editor": "^3.2.1",
+		"codemirror": "^6.0.1",
+		"css-loader": "^6.7.3",
+		"filerobot-image-editor": "^4.3.7",
 		"image-focus": "^1.2.1",
+		"react-filerobot-image-editor": "^4.3.7",
+		"style-loader": "^3.3.1",
 		"svelte-crop-window": "^0.1.1",
 		"svelte-easy-crop": "^1.0.8",
 		"svelte-highlight": "^6.2.1"
